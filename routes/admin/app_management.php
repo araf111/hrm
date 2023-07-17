@@ -1,0 +1,96 @@
+<?php
+// role
+Route::prefix('selected-type')->name('selected-type.')->group(function(){
+	Route::get('/index','SelectedTypes@index')->name('index');
+	Route::get('/create','SelectedTypes@create')->name('create');
+	Route::post('/store','SelectedTypes@store')->name('store');
+	Route::get('/edit/{id}','SelectedTypes@edit')->name('edit');
+	Route::put('/update/{editData}','SelectedTypes@update')->name('update');
+	Route::post('/delete','SelectedTypes@destroy')->name('delete');
+});
+
+Route::prefix('selected-user')->name('selected-user.')->group(function(){
+	Route::get('/index','SelectedUsers@index')->name('index');
+	Route::get('/search','SelectedUsers@search')->name('search');
+	Route::get('/create','SelectedUsers@create')->name('create');
+	Route::post('/store','SelectedUsers@store')->name('store');
+	Route::get('/edit/{id}','SelectedUsers@edit')->name('edit');
+	Route::put('/update/{editData}','SelectedUsers@update')->name('update');
+	Route::post('/delete','SelectedUsers@destroy')->name('delete');
+});
+Route::prefix('selected-member-chat')->name('selected-member-chat.')->group(function(){
+	Route::get('/index','SelectedMemberChats@index')->name('index');
+	Route::get('/search','SelectedMemberChats@search')->name('search');
+	Route::get('/create','SelectedMemberChats@create')->name('create');
+	Route::post('/store','SelectedMemberChats@store')->name('store');
+	Route::post('/comment_store','SelectedMemberChats@comment_store')->name('comment_store');
+	Route::get('/edit/{id}','SelectedMemberChats@edit')->name('edit');
+	Route::get('/show/{id}','SelectedMemberChats@show')->name('show');
+	Route::get('/member_post_list/{id}','SelectedMemberChats@member_post_list')->name('member_post_list');
+	Route::get('/mp_post_list/{id}','SelectedMemberChats@mp_post_list')->name('mp_post_list');
+	Route::put('/update/{editData}','SelectedMemberChats@update')->name('update');
+	Route::put('/comment_update/{editData}','SelectedMemberChats@comment_update')->name('comment_update');
+	Route::post('/delete','SelectedMemberChats@destroy')->name('delete');
+	Route::post('/chat_permision_delete','SelectedMemberChats@chat_permision_destroy')->name('chat_permision_delete');
+	Route::post('/comment_delete','SelectedMemberChats@comment_destroy')->name('comment_delete');
+});
+
+Route::prefix('social-media')->name('social-media.')->group(function(){
+	Route::get('/index','SocialMedia@index')->name('index');
+	Route::get('/create','SocialMedia@create')->name('create');
+	Route::post('/store','SocialMedia@store')->name('store');
+	Route::get('/edit/{id}','SocialMedia@edit')->name('edit');
+	Route::get('/show/{id}','SocialMedia@show')->name('show');
+	Route::put('/update/{editData}','SocialMedia@update')->name('update');
+	Route::post('/delete','SocialMedia@destroy')->name('delete');
+});
+
+Route::prefix('digital-support-question')->name('digital-support-question.')->group(function(){
+	Route::get('/index','DigitalSupport@index')->name('index');
+	Route::get('/create','DigitalSupport@create')->name('create');
+	Route::post('/store','DigitalSupport@store')->name('store');
+	Route::get('/edit/{id}','DigitalSupport@edit')->name('edit');
+	Route::get('/show/{id}','DigitalSupport@show')->name('show');
+	Route::put('/update/{editData}','DigitalSupport@update')->name('update');
+	Route::post('/delete','DigitalSupport@destroy')->name('delete');
+});
+Route::prefix('digital-support-ans')->name('digital-support-ans.')->group(function(){
+	Route::get('/index','DigitalSupport@ans_index')->name('index');
+	Route::get('/approve','DigitalSupport@ans_approve_index')->name('approve');
+	Route::get('/reject','DigitalSupport@ans_reject_index')->name('reject');
+	Route::get('/create','DigitalSupport@create')->name('create');
+	Route::post('/store','DigitalSupport@store')->name('store');
+	Route::get('/edit/{id}','DigitalSupport@ans_edit')->name('edit');
+	Route::get('/show/{id}','DigitalSupport@show')->name('show');
+	Route::put('/update/{editData}','DigitalSupport@ans_update')->name('update');
+	Route::post('/delete','DigitalSupport@destroy')->name('delete');
+});
+
+Route::prefix('all-asking-answer')->name('all-asking-answer.')->group(function(){
+	Route::get('/index','DigitalSupport@asking_ans_index')->name('index');
+	Route::get('/search','DigitalSupport@search_asking_ans_index')->name('search');
+});
+
+Route::prefix('pull-question')->name('pull-question.')->group(function(){
+	Route::get('/index','PullQuestions@index')->name('index');
+	Route::get('/create','PullQuestions@create')->name('create');
+	Route::post('/store','PullQuestions@store')->name('store');
+	Route::get('/edit/{id}','PullQuestions@edit')->name('edit');
+	Route::get('/show/{id}','PullQuestions@show')->name('show');
+	Route::put('/update/{editData}','PullQuestions@update')->name('update');
+	Route::post('/delete','PullQuestions@destroy')->name('delete');
+	Route::post('/options_delete','PullQuestions@mcq_destroy')->name('options_delete');
+});
+
+Route::prefix('pull-list')->name('pull-list.')->group(function(){
+	Route::get('/index','PullLists@index')->name('index');
+	Route::get('/create','PullLists@create')->name('create');
+	Route::post('/store','PullLists@store')->name('store');
+	Route::get('/edit/{id}','PullLists@edit')->name('edit');
+	Route::get('/show/{id}','PullLists@show')->name('show');
+	Route::put('/update/{editData}','PullLists@update')->name('update');
+	Route::post('/delete','PullLists@destroy')->name('delete');
+	Route::post('/options_delete','PullLists@mcq_destroy')->name('options_delete');
+});
+Route::get('/pole-report','PullLists@poleReport');
+Route::get('/pole-summary/{id}','PullLists@generatePoleReport');

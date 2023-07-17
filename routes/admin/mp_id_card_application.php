@@ -1,0 +1,11 @@
+<?php
+    Route::resource('/application','MpIdCardApplicationController');
+    Route::get('/application-pdf/{id}','MpIdCardApplicationController@pdfFileDownload')->name('application-pdf');
+    Route::get('/serial_no-pdf/{id}','MpIdCardApplicationController@pdfMpIdCardDownload')->name('serial_no-pdf');
+    Route::get('/application-approval','MpIdCardApplicationController@applicationApproval')->name('application-approval');
+    Route::get('/application-approaval-modal','MpIdCardApplicationController@applicationApproavalForm')->name('application-approaval-modal');
+    Route::get('/application-approaval-action','MpIdCardApplicationController@applicationApproavalFormAction')->name('application-approaval-action');
+    Route::get('/mp-id-card-issue','MpIdCardApplicationController@mpIdCardIssue')->name('mp-id-card-issue');
+    Route::get('/issue-approaval-modal','MpIdCardApplicationController@issueApproavalForm')->name('issue-approaval-modal');
+    Route::get('/issue-approaval-action','MpIdCardApplicationController@issueApproavalActionForm')->name('issue-approaval-action');
+    Route::get('/issue-view/{id}','MpIdCardApplicationController@issueView')->name('issue-view');
